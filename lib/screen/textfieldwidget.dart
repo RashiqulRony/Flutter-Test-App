@@ -10,8 +10,8 @@ class TextFieldWidget extends StatefulWidget {
 class _TextFieldWidgetState extends State<TextFieldWidget> {
 
   final TextEditingController controller = TextEditingController();
-
-  @override
+  String password = '';
+  bool obscure = false;
 
   @override
   void initState() {
@@ -38,8 +38,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
             controller: controller,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              labelText: "Name",
-              hintText: "Mr. Alex",
+              labelText: "Email",
+              hintText: "test@test.com",
               prefixIcon: Icon(Icons.people),
               suffixIcon: controller.text.isEmpty ? Container(width: 0) : IconButton(
                 onPressed: (){
@@ -49,6 +49,35 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
               )
             ),
         ),
+
+        SizedBox(height: 25),
+
+        TextField(
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.text,
+            //controller: controller,
+            onChanged: (value) {
+              setState(() {
+                 password = value;
+              });
+             
+              print(password);
+            },
+            obscureText: obscure,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: "Password",
+              errorText: "Password is weak",
+              prefixIcon: Icon(Icons.people),
+              suffixIcon: IconButton(onPressed: () {
+                setState(() {
+                  obscure = !obscure;
+                });
+              }, icon: obscure ? Icon(Icons.visibility) : Icon(Icons.visibility_off),)
+            ),
+        ),
+        SizedBox(height: 10),
+        Text(password),
         // SizedBox(height: 25),
         // TextField(
         //   controller: controller,
