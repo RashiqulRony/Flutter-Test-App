@@ -4,6 +4,7 @@ import 'package:untitled/screen/continerwidget.dart';
 import 'package:untitled/screen/homepage.dart';
 import 'package:untitled/screen/imagewidget.dart';
 import 'package:untitled/screen/listviewwidget.dart';
+import 'package:untitled/screen/navigatorpage.dart';
 import 'package:untitled/screen/rowcolumn.dart';
 import 'package:untitled/screen/scaffoldtext.dart';
 import 'package:untitled/screen/textfieldwidget.dart';
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
       // home: ListViewWidget(),
       // home: ImageWidget(),
       // home: ButtonWidget(),
-      home: TextFieldWidget(),
+      //home: TextFieldWidget(),
+      home: NavigatorPageWidget(),
     );
   }
 }
